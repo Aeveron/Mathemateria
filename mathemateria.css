@@ -1,0 +1,93 @@
+﻿#b1, #b2, #b3, #b4, #b5, #b6, #b7, #b8, #b9, #b0 {
+    height: 120px;
+    width: 120px;
+    padding: 3px;
+    margin: 3px;
+    font-family: fontAwsome;
+    font-size: 25px;
+    background-color: darkorange;
+    border: 2px solid black;
+    background: linear-gradient(to bottom right, indianred, darkorange);
+}
+
+
+
+#nextTask {
+    /*margin-left: 20%;*/
+    background-color: darkorange;
+    font-family: fontAwsome;
+    font-size: 25px;
+    width: 250px;
+    height: 50px;
+    border: 2px solid black;
+    background: linear-gradient(to bottom right, indianred, darkorange);
+    display: block;
+    margin-left: 48%;
+    margin-right: 48%;
+}
+
+#newRound {
+    /*margin-left: 490px;*/
+    background-color: darkorange;
+    font-family: fontAwsome;
+    font-size: 25px;
+    width: 250px;
+    height: 50px;
+    border: 2px solid black;
+    background: linear-gradient(to bottom right, indianred, darkorange);
+    display: block;
+    margin-left: 48%;
+    margin-right: 48%;
+}
+
+svg {
+    display: block;
+    margin-left: 48%;
+    margin-right: 48%;
+    font-family: fontAwsome;
+    background-color: darkorange;
+    border: 2px solid black;
+    background: linear-gradient(to bottom right, indianred, darkorange);
+}
+
+#secdiv {
+    display: none;
+    margin-left: 48%;
+    margin-right: 48%;
+    font-family: fontAwsome;
+    background-color: darkorange;
+    background: linear-gradient(to bottom right, indianred, darkorange);
+    font-size: 25px;
+    border: 2px solid black;
+    height: 50px;
+    width: 30%;
+    padding-top: 10px;
+    color: black;
+}
+
+body {
+    background-image: url("abstract-ancient-antique-235985.jpg");
+    overflow: hidden;
+}
+
+img {
+    -webkit-transform: scaleX(-1);
+    transform: scaleX(-1);
+}
+
+#answers {
+    display: none;
+    font-family: fontAwsome;
+    background-color: darkorange;
+    background: linear-gradient(to bottom right, indianred, darkorange);
+    font-size: 50px;
+    border: 2px solid black;
+    height: 50px;
+    width: 10%;
+    padding-bottom: 10px;
+    color: black;
+    float: right;
+    margin-right: 30%;
+    margin-top: 10px;
+    text-align: center;
+}
