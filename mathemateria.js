@@ -16,11 +16,15 @@ var currentExerciseIndex;
 var startTime = 0;
 var sec = document.getElementById('secdiv');
 var timerInterval;
+var counter = 0;
 
 function displayAnswers(clicked) {
     var number = clicked.innerHTML;
     answers.innerHTML += number;
     answers.style.display = 'block';
+
+
+    
 }
 
 function getExerciseCount() {
@@ -56,7 +60,7 @@ function fetchExerciseSet() {
 
 function recieveExerciseSet(exerciseSetFromServer) {
     exerciseSet = exerciseSetFromServer;
-    console.log(exerciseSet);
+    //console.log(exerciseSet);
     seconds = 0;
     startTime = currentTimeInMilliseconds();
     timerInterval = setInterval(secCounter, 100);

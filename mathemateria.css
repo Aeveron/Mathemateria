@@ -13,7 +13,6 @@
 
 
 #nextTask {
-    /*margin-left: 20%;*/
     background-color: darkorange;
     font-family: fontAwsome;
     font-size: 25px;
@@ -21,9 +20,6 @@
     height: 50px;
     border: 2px solid black;
     background: linear-gradient(to bottom right, indianred, darkorange);
-    display: block;
-    margin-left: 48%;
-    margin-right: 48%;
 }
 
 #newRound {
@@ -87,7 +83,7 @@ img {
     padding-bottom: 10px;
     color: black;
     float: right;
-    margin-right: 30%;
-    margin-top: 10px;
+    margin-right: 40%;
+    margin-top: 20%;
     text-align: center;
 }
