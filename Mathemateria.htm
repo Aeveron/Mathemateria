@@ -215,9 +215,9 @@
         }
 
         function showExercise() {
-            seconds = 0;
-            secCounter();
-            sec.style.display = 'block';           
+            //seconds = 0;
+            //secCounter();
+            //sec.style.display = 'block';           
             var exercise = exerciseSet.exercises[currentExerciseIndex];
             console.log(exercise.width);
             console.log(exercise.height);
@@ -228,6 +228,9 @@
         }
 
         function fetchExerciseSet() {
+            seconds = 0;
+            secCounter();
+            sec.style.display = 'block';
             exerciseSet = {
                 "exercises": [
                     {
