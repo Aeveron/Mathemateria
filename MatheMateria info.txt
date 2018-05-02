@@ -1,3 +1,11 @@
+2. mai: Punkter fra Terje
+ - Når "Start new round", vise første oppgave
+ - submitAnswer: Sjekke om svart på alle 10
+                 I så fall, stoppe timer. Kalle server
+ - i showExercise, vise currentExercise i svg-taggen.
+ - i submitAnswer, blanke svarfelt
+ - vise hvilken oppgave du er på (feks. "Du er på oppgave 3 av 10")
+
 <li>I <tt>showExercise</tt> må du dynamisk lage en svg-tag ala den under, hvor width, height og path puttes inn. </li>      
 <li>Lage eget talltastatur, som kan brukes til å skrive inn svaret</li>     
 <li>Lage svarfelt hvor det du trykker på talltastaturet vises</li   
