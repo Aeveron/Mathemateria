@@ -6,9 +6,9 @@
  - i submitAnswer, blanke svarfelt
  - vise hvilken oppgave du er på (feks. "Du er på oppgave 3 av 10")
 
-<li>I <tt>showExercise</tt> må du dynamisk lage en svg-tag ala den under, hvor width, height og path puttes inn. </li>      
-<li>Lage eget talltastatur, som kan brukes til å skrive inn svaret</li>     
-<li>Lage svarfelt hvor det du trykker på talltastaturet vises</li   
-<li>Knapp for å submitte svar og gå til neste oppgave</li>    
-<li>Hele tiden vise hvor mye tid som har gått (kun hele sekunder)</li>    
-<li>Når brukeren har svart på 10 oppgaver, laste opp til serveren (spør Terje)</li>
+I <tt>showExercise</tt> må du dynamisk lage en svg-tag ala den under, hvor width, height og path puttes inn.      
+Lage eget talltastatur, som kan brukes til å skrive inn svaret   
+Lage svarfelt hvor det du trykker på talltastaturet vises
+Knapp for å submitte svar og gå til neste oppgave    
+Hele tiden vise hvor mye tid som har gått (kun hele sekunder)  
+Når brukeren har svart på 10 oppgaver, laste opp til serveren (spør Terje)
