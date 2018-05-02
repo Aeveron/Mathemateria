@@ -22,7 +22,7 @@ function displayAnswers(clicked) {
     var number = clicked.innerHTML;
     answers.innerHTML += number;
     answers.style.display = 'block';
-    if (answers.innerHTML.length > 5) {
+    if (answers.innerHTML.length > 4) {
         answers.innerHTML = '';
     }
 }

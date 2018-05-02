@@ -8,6 +8,16 @@
     background-color: darkorange;
     border: 2px solid black;
     background: linear-gradient(to bottom right, indianred, darkorange);
+   
+}
+
+#buttonDiv{
+    margin-left: 35%;
+    margin-right: 35%;
+    margin-top: 5%;
+    height: 60%;
+    width: 60%;
+
 }
 
 
@@ -32,8 +42,8 @@
     border: 2px solid black;
     background: linear-gradient(to bottom right, indianred, darkorange);
     display: block;
-    margin-left: 48%;
-    margin-right: 48%;
+    margin-left: 65%;
+    margin-right: 65%;
 }
 
 svg {
@@ -83,7 +93,7 @@ img {
     padding-bottom: 10px;
     color: black;
     float: right;
-    margin-right: 40%;
+    margin-right: 10%;
     margin-top: 20%;
     text-align: center;
 }
