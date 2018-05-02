@@ -10,6 +10,7 @@ var btn7 = document.getElementById('b7');
 var btn8 = document.getElementById('b8');
 var btn9 = document.getElementById('b9');
 var btn0 = document.getElementById('b0');
+var equals = document.getElementById('equals');
 var svgContainer = document.getElementById('svgContainer');
 var exerciseSet;
 var currentExerciseIndex;
@@ -57,6 +58,7 @@ function fetchExerciseSet() {
     scriptTag.setAttribute('src', 'https://us-central1-fir-test-bb3be.cloudfunctions.net/createExerciseSet');
     document.body.appendChild(scriptTag);
     //document.body.innerHTML += html;
+    equals.style.display = 'block';
 }
 
 function recieveExerciseSet(exerciseSetFromServer) {

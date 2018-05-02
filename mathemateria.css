@@ -1,8 +1,8 @@
 ﻿#b1, #b2, #b3, #b4, #b5, #b6, #b7, #b8, #b9, #b0 {
     height: 120px;
     width: 120px;
-    padding: 3px;
-    margin: 3px;
+    padding: 5px;
+    margin: 5px;
     font-family: fontAwsome;
     font-size: 25px;
     background-color: darkorange;
@@ -48,25 +48,41 @@
 
 svg {
     display: block;
-    margin-left: 48%;
-    margin-right: 48%;
+    margin-left: 43%;
+    margin-right: 43%;
     font-family: fontAwsome;
     background-color: darkorange;
     border: 2px solid black;
     background: linear-gradient(to bottom right, indianred, darkorange);
 }
 
+#equals {
+    display: none;  
+    position: absolute;
+    top: 10px;
+    right: 30%;
+    font-family: fontAwsome;
+    background-color: darkorange;
+    border: 2px solid black;
+    background: linear-gradient(to bottom right, indianred, darkorange);
+    text-align: center;
+    font-size: 60px;
+    float: right;
+    width: 100px;
+  
+}
+
 #secdiv {
     display: none;
-    margin-left: 48%;
-    margin-right: 48%;
+    margin-left: 65%;
+    margin-right: 65%;
     font-family: fontAwsome;
     background-color: darkorange;
     background: linear-gradient(to bottom right, indianred, darkorange);
     font-size: 25px;
     border: 2px solid black;
-    height: 50px;
-    width: 30%;
+    height: 60px;
+    width: 25%;
     padding-top: 10px;
     color: black;
 }
@@ -89,11 +105,13 @@ img {
     font-size: 50px;
     border: 2px solid black;
     height: 50px;
-    width: 10%;
+    width: 12%;
     padding-bottom: 10px;
     color: black;
     float: right;
-    margin-right: 10%;
-    margin-top: 20%;
     text-align: center;
+    position: absolute;
+    right: 16%;
+    top: 10px;
+
 }

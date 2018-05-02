@@ -7,8 +7,11 @@
     <link rel="stylesheet" href="mathemateria.css" />
 </head>
 <body>
+
     <div id="answers"></div>
-    
+    <div id="svgContainer"></div>
+    <div id="equals">=</div>
+
     <div id="buttonDiv">
         <button id="b1" onclick="displayAnswers(this)">1</button>
         <button id="b2" onclick="displayAnswers(this)">2</button>
@@ -25,10 +28,11 @@
         <button id="b0" onclick="displayAnswers(this)">0</button>
         <button id="nextTask" onclick="submitAnswer()">Submit answer</button>
     </div>
-    <br/>
-    
+    <br />
 
-    <div id="svgContainer"></div>
+
+
+
 
     <br />
     <button id="newRound" onclick="fetchExerciseSet()">Start new round</button>
