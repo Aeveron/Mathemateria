@@ -31,9 +31,9 @@ function displayAnswers(clicked) {
 }
 
 function removeAnswers(clearThis) {
-    if (clear == clearThis) {
 
-    }
+    var txt = answers.innerHTML;
+    answers.innerHTML = txt.substring(0, txt.length-1);
 }
 
 function getExerciseCount() {
@@ -44,25 +44,25 @@ function getExerciseCount() {
 //       I så fall, stoppe timer. Kalle server
 function submitAnswer() {
     currentExerciseIndex++;
+    
     answers.innerHTML = '';
     if (currentExerciseIndex > 10) {
         clearTimeout(timerInterval);
         svgContainer.style.display = 'none';
         equals.style.display = 'none';
         answers.style.display = 'none';
-    }
-    if (currentExerciseIndex == 1) {
-        currentExerciseIndex = 2;
-        taskNumber.innerText = currentExerciseIndex + ' ' + 'out of 10';
-    } else taskNumber.innerText = currentExerciseIndex + ' ' + 'out of 10';
-
-    if (currentExerciseIndex > 10) {
         taskNumber.style.display = 'none';
     }
     showExercise();
 }
 
 function showExercise() {
+    var exerciseNo = currentExerciseIndex + 1;
+    taskNumber.innerText = exerciseNo + ' out of ' + getExerciseCount();
+    if (exerciseNo > getExerciseCount()) {
+        taskNumber.innerHTML = '10 out of 10 completed' + '<br/>' + 'you are done!';
+        
+    }
     var exercise = exerciseSet.exercises[currentExerciseIndex];
     svgContainer.innerHTML = '<svg width="' + exercise.width +
         '" height="' + exercise.height + '">' +
@@ -84,8 +84,7 @@ function fetchExerciseSet() {
     svgContainer.style.display = 'block';
     answers.style.display = 'block';
     taskNumber.style.display = 'block';
-    currentExerciseIndex = 1;
-    taskNumber.innerText = currentExerciseIndex + ' ' + 'out of 10';
+    currentExerciseIndex = 0;
 }
 
 function recieveExerciseSet(exerciseSetFromServer) {
@@ -100,6 +99,10 @@ function recieveExerciseSet(exerciseSetFromServer) {
 
 function secCounter() {
     var millis = currentTimeInMilliseconds() - startTime;
-    var seconds = Math.floor(millis / 1000);
+    var minutes = Math.floor(millis / 60000);
+    var seconds = Math.floor(millis / 1000) - minutes * 60;
     sec.innerText = " You have spent " + seconds + " seconds.";
+    if (minutes > 0) {
+        sec.innerText = " You have spent " + ' ' + minutes + ' ' + 'minutes' + ' ' + 'and' + ' ' + seconds + " seconds.";
+    }
 }
