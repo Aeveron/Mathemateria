@@ -26,14 +26,14 @@ function displayAnswers(clicked) {
     answers.innerHTML += number;
     answers.style.display = 'block';
     if (answers.innerHTML.length > 4) {
-        answers.innerHTML = '';
+        var txt = answers.innerHTML;
+        answers.innerHTML = txt.substring(0, txt.length = 4);
     }
 }
 
 function removeAnswers(clearThis) {
-
     var txt = answers.innerHTML;
-    answers.innerHTML = txt.substring(0, txt.length-1);
+    answers.innerHTML = txt.substring(0, txt.length - 1);
 }
 
 function getExerciseCount() {
@@ -44,9 +44,9 @@ function getExerciseCount() {
 //       I så fall, stoppe timer. Kalle server
 function submitAnswer() {
     currentExerciseIndex++;
-    
+
     answers.innerHTML = '';
-    if (currentExerciseIndex > 10) {      
+    if (currentExerciseIndex > 10) {
         svgContainer.style.display = 'none';
         equals.style.display = 'none';
         answers.style.display = 'none';
@@ -58,10 +58,11 @@ function submitAnswer() {
 function showExercise() {
     var exerciseNo = currentExerciseIndex + 1;
     taskNumber.innerText = exerciseNo + ' out of ' + getExerciseCount();
+    var exerciseCountVar = getExerciseCount();
     if (exerciseNo > getExerciseCount()) {
-        taskNumber.innerHTML = '10 out of 10 completed' + '<br/>' + 'you are done!';
+        taskNumber.innerHTML = 'Finished!' + '<br/>' + sec.innerText;
         clearTimeout(timerInterval);
-        
+        answers.innerHTML.length = 0;
     }
     var exercise = exerciseSet.exercises[currentExerciseIndex];
     svgContainer.innerHTML = '<svg width="' + exercise.width +
@@ -84,6 +85,7 @@ function fetchExerciseSet() {
     svgContainer.style.display = 'block';
     answers.style.display = 'block';
     taskNumber.style.display = 'block';
+    answers.innerHTML = '';
     currentExerciseIndex = 0;
 }
 
