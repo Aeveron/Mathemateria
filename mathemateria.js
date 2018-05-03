@@ -46,8 +46,7 @@ function submitAnswer() {
     currentExerciseIndex++;
     
     answers.innerHTML = '';
-    if (currentExerciseIndex > 10) {
-        clearTimeout(timerInterval);
+    if (currentExerciseIndex > 10) {      
         svgContainer.style.display = 'none';
         equals.style.display = 'none';
         answers.style.display = 'none';
@@ -61,6 +60,7 @@ function showExercise() {
     taskNumber.innerText = exerciseNo + ' out of ' + getExerciseCount();
     if (exerciseNo > getExerciseCount()) {
         taskNumber.innerHTML = '10 out of 10 completed' + '<br/>' + 'you are done!';
+        clearTimeout(timerInterval);
         
     }
     var exercise = exerciseSet.exercises[currentExerciseIndex];
