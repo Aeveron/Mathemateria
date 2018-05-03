@@ -1,5 +1,6 @@
 var nextTask = document.getElementById('nextTask');
 var answers = document.getElementById('answers');
+var clear = document.getElementById('clear');
 var btn1 = document.getElementById('b1');
 var btn2 = document.getElementById('b2');
 var btn3 = document.getElementById('b3');
@@ -18,6 +19,7 @@ var startTime = 0;
 var sec = document.getElementById('secdiv');
 var timerInterval;
 var counter = 0;
+var taskNumber = document.getElementById('taskNumber');
 
 function displayAnswers(clicked) {
     var number = clicked.innerHTML;
@@ -28,15 +30,35 @@ function displayAnswers(clicked) {
     }
 }
 
+function removeAnswers(clearThis) {
+    if (clear == clearThis) {
+
+    }
+}
+
 function getExerciseCount() {
     return exerciseSet.exercises.length;
 }
 
+// Todo: Sjekke om svart på alle 10
+//       I så fall, stoppe timer. Kalle server
 function submitAnswer() {
     currentExerciseIndex++;
-        answers.innerHTML = '';
-    // Todo: Sjekke om svart på alle 10
-    //       I så fall, stoppe timer. Kalle server
+    answers.innerHTML = '';
+    if (currentExerciseIndex > 10) {
+        clearTimeout(timerInterval);
+        svgContainer.style.display = 'none';
+        equals.style.display = 'none';
+        answers.style.display = 'none';
+    }
+    if (currentExerciseIndex == 1) {
+        currentExerciseIndex = 2;
+        taskNumber.innerText = currentExerciseIndex + ' ' + 'out of 10';
+    } else taskNumber.innerText = currentExerciseIndex + ' ' + 'out of 10';
+
+    if (currentExerciseIndex > 10) {
+        taskNumber.style.display = 'none';
+    }
     showExercise();
 }
 
@@ -59,12 +81,16 @@ function fetchExerciseSet() {
     document.body.appendChild(scriptTag);
     //document.body.innerHTML += html;
     equals.style.display = 'block';
+    svgContainer.style.display = 'block';
+    answers.style.display = 'block';
+    taskNumber.style.display = 'block';
+    currentExerciseIndex = 1;
+    taskNumber.innerText = currentExerciseIndex + ' ' + 'out of 10';
 }
 
 function recieveExerciseSet(exerciseSetFromServer) {
     exerciseSet = exerciseSetFromServer;
     //console.log(exerciseSet);
-    seconds = 0;
     startTime = currentTimeInMilliseconds();
     timerInterval = setInterval(secCounter, 100);
     sec.style.display = 'block';

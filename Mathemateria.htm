@@ -28,7 +28,7 @@
         <button id="b0" onclick="displayAnswers(this)">0</button>
         <button id="nextTask" onclick="submitAnswer()">Submit answer</button>
         <br/>
-        <button id="clear" onclick="resetAnswers(this)">Reset</button>
+        <button id="clear" onclick="removeAnswers(this)">⌫</button>
     </div>
     <br />
 
@@ -40,6 +40,7 @@
     <button id="newRound" onclick="fetchExerciseSet()">Start new round</button>
     <br />
     <div id="secdiv"></div>
+    <div id="taskNumber"></div>
 
     <br />
     <ul>

@@ -14,10 +14,9 @@
 #buttonDiv{
     margin-left: 35%;
     margin-right: 35%;
-    margin-top: 5%;
+    margin-top: 10%;
     height: 60%;
-    width: 60%;
-
+    width: 60%; 
 }
 
 
@@ -128,4 +127,20 @@ img {
     right: 15px;
     top: 15%;
 
+}
+
+#taskNumber {
+    font-family: fontAwsome;
+    background-color: darkorange;
+    background: linear-gradient(to bottom right, indianred, darkorange);
+    font-size: 25px;
+    border: 2px solid black;
+    height: 40px;
+    width: 20%;
+    color: black;
+    text-align: center;
+    padding-top: 10px;
+    position:absolute;
+    top: 100px;
+    right: 25%;
 }
