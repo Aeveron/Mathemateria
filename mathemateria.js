@@ -21,17 +21,19 @@ var sec = document.getElementById('secdiv');
 var timerInterval;
 var counter = 0;
 var taskNumber = document.getElementById('taskNumber');
-var taskNumberP = document.getElementById('taskNumberP');
+var allAnswers = ''; // '16,81,35,27,4,9,12,8,49,48'
 
 function displayAnswers(clicked) {
     var number = clicked.innerHTML;
     var txt = answers.innerHTML;
     answers.innerHTML += number;
     answers.style.display = 'block';
+    if (sec.innerText == 0) {
+        answers.style.display = 'none';
+    }
     if (taskNumber.innerHTML === 'Finished!' + ' ') {
         answers.innerHTML = txt.substring(0, txt.length = 0);
         answers.style.display = 'none';
-
     }
     if (answers.innerHTML.length > 4) {
         var txt = answers.innerHTML;
@@ -53,15 +55,28 @@ function getExerciseCount() {
 
 function submitAnswer() {
     currentExerciseIndex++;
+    allAnswers += answers.innerHTML + ',';
+    if (currentExerciseIndex > 0) {
+        answers.innerHTML = '';
+    } 
+    console.log(answers.innerHTML, allAnswers);
     answers.innerHTML = '';
     if (currentExerciseIndex > 10) {
         svgContainer.style.display = 'none';
         equals.style.display = 'none';
         answers.style.display = 'none';
-        taskNumber.style.display = 'none';
+        taskNumber.style.display = 'none';      
     }
     showExercise();
 }
+
+
+
+function exerciseCorrect() {
+
+
+}
+
 
 function showExercise() {
     var exerciseNo = currentExerciseIndex + 1;
@@ -75,8 +90,6 @@ function showExercise() {
         equals.style.display = 'none';
         clear.style.display = 'none';
         nextTask.style.display = 'none';
-        taskNumberP = sec.innerText;
-        taskNumberP.style.display = 'block';
     }
     var exercise = exerciseSet.exercises[currentExerciseIndex];
     svgContainer.innerHTML = '<svg width="' + exercise.width +
@@ -100,9 +113,10 @@ function fetchExerciseSet() {
     nextTask.style.display = 'block';
     answers.style.display = 'block';
     taskNumber.style.display = 'block';
+    clear.style.display = 'block';
     answers.innerHTML = '';
     currentExerciseIndex = 0;
-    taskNumberP.style.display = 'none';
+    //taskNumberP.style.display = 'none';
 }
 
 function recieveExerciseSet(exerciseSetFromServer) {
