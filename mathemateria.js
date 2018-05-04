@@ -11,6 +11,7 @@ var btn7 = document.getElementById('b7');
 var btn8 = document.getElementById('b8');
 var btn9 = document.getElementById('b9');
 var btn0 = document.getElementById('b0');
+var buttonDiv = document.getElementsByClassName('buttonDiv');
 var equals = document.getElementById('equals');
 var svgContainer = document.getElementById('svgContainer');
 var exerciseSet;
@@ -20,11 +21,18 @@ var sec = document.getElementById('secdiv');
 var timerInterval;
 var counter = 0;
 var taskNumber = document.getElementById('taskNumber');
+var taskNumberP = document.getElementById('taskNumberP');
 
 function displayAnswers(clicked) {
     var number = clicked.innerHTML;
+    var txt = answers.innerHTML;
     answers.innerHTML += number;
     answers.style.display = 'block';
+    if (taskNumber.innerHTML === 'Finished!' + ' ') {
+        answers.innerHTML = txt.substring(0, txt.length = 0);
+        answers.style.display = 'none';
+
+    }
     if (answers.innerHTML.length > 4) {
         var txt = answers.innerHTML;
         answers.innerHTML = txt.substring(0, txt.length = 4);
@@ -42,9 +50,9 @@ function getExerciseCount() {
 
 // Todo: Sjekke om svart på alle 10
 //       I så fall, stoppe timer. Kalle server
+
 function submitAnswer() {
     currentExerciseIndex++;
-
     answers.innerHTML = '';
     if (currentExerciseIndex > 10) {
         svgContainer.style.display = 'none';
@@ -60,9 +68,15 @@ function showExercise() {
     taskNumber.innerText = exerciseNo + ' out of ' + getExerciseCount();
     var exerciseCountVar = getExerciseCount();
     if (exerciseNo > getExerciseCount()) {
-        taskNumber.innerHTML = 'Finished!' + '<br/>' + sec.innerText;
+        taskNumber.innerHTML = 'Finished!' + ' ';
         clearTimeout(timerInterval);
-        answers.innerHTML.length = 0;
+        answers.style.display = 'none';
+        svgContainer.style.display = 'none';
+        equals.style.display = 'none';
+        clear.style.display = 'none';
+        nextTask.style.display = 'none';
+        taskNumberP = sec.innerText;
+        taskNumberP.style.display = 'block';
     }
     var exercise = exerciseSet.exercises[currentExerciseIndex];
     svgContainer.innerHTML = '<svg width="' + exercise.width +
@@ -83,10 +97,12 @@ function fetchExerciseSet() {
     //document.body.innerHTML += html;
     equals.style.display = 'block';
     svgContainer.style.display = 'block';
+    nextTask.style.display = 'block';
     answers.style.display = 'block';
     taskNumber.style.display = 'block';
     answers.innerHTML = '';
     currentExerciseIndex = 0;
+    taskNumberP.style.display = 'none';
 }
 
 function recieveExerciseSet(exerciseSetFromServer) {
