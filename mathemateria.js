@@ -54,29 +54,16 @@ function getExerciseCount() {
 //       I så fall, stoppe timer. Kalle server
 
 function submitAnswer() {
+    var exerciseNo = currentExerciseIndex + 1;
     currentExerciseIndex++;
     allAnswers += answers.innerHTML + ',';
     if (currentExerciseIndex > 0) {
         answers.innerHTML = '';
     } 
     console.log(answers.innerHTML, allAnswers);
-    answers.innerHTML = '';
-    if (currentExerciseIndex > 10) {
-        svgContainer.style.display = 'none';
-        equals.style.display = 'none';
-        answers.style.display = 'none';
-        taskNumber.style.display = 'none';      
-    }
+    answers.innerHTML = ''; 
     showExercise();
 }
-
-
-
-function exerciseCorrect() {
-
-
-}
-
 
 function showExercise() {
     var exerciseNo = currentExerciseIndex + 1;
@@ -90,12 +77,13 @@ function showExercise() {
         equals.style.display = 'none';
         clear.style.display = 'none';
         nextTask.style.display = 'none';
+    } else {
+        var exercise = exerciseSet.exercises[currentExerciseIndex];
+        svgContainer.innerHTML = '<svg width="' + exercise.width +
+            '" height="' + exercise.height + '">' +
+            '<path d="' + exercise.path + '"></path>' +
+            '</svg>';
     }
-    var exercise = exerciseSet.exercises[currentExerciseIndex];
-    svgContainer.innerHTML = '<svg width="' + exercise.width +
-        '" height="' + exercise.height + '">' +
-        '<path d="' + exercise.path + '"></path>' +
-        '</svg>';
 }
 
 function currentTimeInMilliseconds() {
