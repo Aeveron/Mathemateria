@@ -1,0 +1,58 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>Mathemateria</title>
+    <link rel="stylesheet" href="mathemateria.css" />
+</head>
+<body>
+
+    <div id="answers"></div>
+    <div id="svgContainer"></div>
+    <div id="equals">=</div>
+
+    <div id="buttonDiv">
+        <button id="b1" onclick="displayAnswers(this)">1</button>
+        <button id="b2" onclick="displayAnswers(this)">2</button>
+        <button id="b3" onclick="displayAnswers(this)">3</button>
+        <br />
+        <button id="b4" onclick="displayAnswers(this)">4</button>
+        <button id="b5" onclick="displayAnswers(this)">5</button>
+        <button id="b6" onclick="displayAnswers(this)">6</button>
+        <br />
+        <button id="b7" onclick="displayAnswers(this)">7</button>
+        <button id="b8" onclick="displayAnswers(this)">8</button>
+        <button id="b9" onclick="displayAnswers(this)">9</button>
+        <br />
+        <button id="b0" onclick="displayAnswers(this)">0</button>
+        <button id="nextTask" onclick="submitAnswer()">Submit answer</button>
+        <br />
+        <button id="clear" onclick="removeAnswers(this)">⌫</button>
+    </div>
+    <br />
+
+
+
+
+
+    <br />
+    <button id="newRound" onclick="fetchExerciseSet()">Start new round</button>
+    <br />
+    <div id="secdiv"></div>
+    <div id="taskNumber"></div>
+
+    <br />
+    <ul>
+        <!--<li>I <tt>showExercise</tt> må du dynamisk lage en svg-tag ala den under, hvor width, height og path puttes inn. </li>
+        <li>Lage eget talltastatur, som kan brukes til å skrive inn svaret</li>
+        <li>Lage svarfelt hvor det du trykker på talltastaturet vises</li>
+        <li>Knapp for å submitte svar og gå til neste oppgave</li>
+        <li>Hele tiden vise hvor mye tid som har gått (kun hele sekunder)</li>
+        <li>Når brukeren har svart på 10 oppgaver, laste opp til serveren (spør Terje)</li>-->
+
+    </ul>
+
+    <script type="text/javascript" src="mathemateria.js"></script>
+</body>
+</html>
