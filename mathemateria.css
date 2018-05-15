@@ -53,7 +53,7 @@
    
 }
 
-svg {
+#svgContainer {
     display: block;
     font-family: fontAwsome;
     background-color: darkorange;
@@ -149,5 +149,22 @@ img {
     position: absolute;
     top: 18%;
     right: 25%;
+    display: none;
+}
+
+#resultDiv {
+    font-family: fontAwsome;
+    background-color: darkorange;
+    background: linear-gradient(to bottom right, indianred, darkorange);
+    font-size: 25px;
+    border: 2px solid black;
+    height: 45%;
+    width: 30%;
+    color: black;
+    padding-top: 10px;
+    position: absolute;
+    bottom: 15%;
+    left: 5%;
+    padding-left: 10px;
     display: none;
 }

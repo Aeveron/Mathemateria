@@ -12,3 +12,7 @@ Lage svarfelt hvor det du trykker på talltastaturet vises
 Knapp for å submitte svar og gå til neste oppgave    
 Hele tiden vise hvor mye tid som har gått (kun hele sekunder)  
 Når brukeren har svart på 10 oppgaver, laste opp til serveren
+
+Vise frem alle svar i en div
+Vise hvilke oppgaver som er riktig eller galt svar inkludert riktig svar
+Vise nøyaktig tid med millisekunder
