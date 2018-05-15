@@ -1,0 +1,6 @@
+Dette eksemplet viser hvordan man sender svarene til serveren (sammen med kryptert fasit og starttid) - og hva man får tilbake.
+Neste oppgave blir å gjør tilsvarende med de 10 svarene brukeren har gitt.
+Hvis alt er riktig, skal det vises en beskjed om det - sammen med hvilken tid som er brukt.
+Ellers skal tiden ikke vises, men det skal vises en oversikt over alle spørsmålene, hva brukeren svarte og hva som var riktig svar.
+Oppgavene som er besvart feil må markeres.(edited)
+Lykke til! 
