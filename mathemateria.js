@@ -1,4 +1,4 @@
-var nextTask = document.getElementById('nextTask');
+﻿var nextTask = document.getElementById('nextTask');
 var answers = document.getElementById('answers');
 var clear = document.getElementById('clear');
 var resultDiv = document.getElementById('resultDiv');
@@ -53,8 +53,8 @@ function getExerciseCount() {
     return exerciseSet.exercises.length;
 }
 
-// Todo: Sjekke om svart p� alle 10
-//       I s� fall, stoppe timer. Kalle server
+// Todo: Sjekke om svart på alle 10
+//       I så fall, stoppe timer. Kalle server
 
 function submitAnswer() {
     var exerciseNo = currentExerciseIndex + 1;
@@ -172,16 +172,20 @@ function callServer(functionName, paramsObj) {
 }
 
 function recieveEvaluation(evaluation) {
+    var millis = currentTimeInMilliseconds() - startTime;
+    var minutes = Math.floor(millis / 60000);
+    var seconds = (millis / 1000) - minutes * 60;
+    evaluation.exercises = ['7×8', '3×4', '9×9', '7×8', '3×4', '9×9', '7×8', '3×4', '9×9', '7×8'];
     console.log(evaluation);
     for (var i = 0; i < yourAnswers.length; i++) {
         console.log(yourAnswers[i]);
         console.log(evaluation.correctAnswers[i]);
         var thisTaskNumber = i + 1;
         if (yourAnswers[i] == evaluation.correctAnswers[i]) {
-            resultDiv.innerHTML += thisTaskNumber + ' . ' + "<font color='green'>Correct!</font>" + '<br/>';
+            resultDiv.innerHTML += thisTaskNumber + ' . ' + evaluation.exercises[i] +"<font color='green'>Correct!</font>" + '<br/>';
 
-        } else {
-            resultDiv.innerHTML += thisTaskNumber + ' . ' + '<strike>' + "<font color='#cc0000'>Wrong!</font>" + '</strike>' +
+        } else {           
+            resultDiv.innerHTML += thisTaskNumber + ' . ' + evaluation.exercises[i] + '<strike>' + "<font color='#cc0000'>Wrong!</font>" + '</strike>' +
                 ' The correct answer = ' + evaluation.correctAnswers[i] + '<br/>';
         }
         console.log(exerciseArray[i]);
