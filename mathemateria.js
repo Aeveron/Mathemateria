@@ -24,6 +24,7 @@ var counter = 0;
 var taskNumber = document.getElementById('taskNumber');
 var allAnswers = ''; // '16,81,35,27,4,9,12,8,49,48'
 var yourAnswers = [];
+var exerciseArray = [];
 
 function displayAnswers(clicked) {
     var number = clicked.innerHTML;
@@ -93,6 +94,7 @@ function showExercise() {
             '" height="' + exercise.height + '">' +
             '<path d="' + exercise.path + '"></path>' +
             '</svg>';
+        exerciseArray[currentExerciseIndex] = exercise;
     }
 }
 
@@ -179,8 +181,9 @@ function recieveEvaluation(evaluation) {
             resultDiv.innerHTML += thisTaskNumber + ' . ' + "<font color='green'>Correct!</font>" + '<br/>';
 
         } else {
-            resultDiv.innerHTML += '<strike>' + thisTaskNumber + ' . ' + "<font color='red'>Wrong!</font>" + '</strike>' + ' The correct answer = ' + evaluation.correctAnswers[i] + '<br/>';
+            resultDiv.innerHTML += thisTaskNumber + ' . ' + '<strike>' + "<font color='#cc0000'>Wrong!</font>" + '</strike>' +
+                ' The correct answer = ' + evaluation.correctAnswers[i] + '<br/>';
         }
-
+        console.log(exerciseArray[i]);
     }
 };
