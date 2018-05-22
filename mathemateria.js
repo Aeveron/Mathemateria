@@ -236,3 +236,27 @@ var uiConfig = {
     tosUrl: '<your-tos-url>'
 };
 ui.start('#firebaseui-auth-container', uiConfig);
+
+var currentExerciseSet = null;
+var positionLatitude = 55.8882509;
+var positionLongitude = 8.6240321;
+var placeLabel = document.getElementById("place");
+
+function getGeoLocation() {
+    console.log('getGeoLocation');
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(showPosition);
+        placeLabel.innerHTML = 'Getting geo location...';
+    } else {
+        placeLabel.innerHTML = "Geolocation is not supported by this browser.";
+    }
+}
+
+function showPosition(position) {
+    console.log('showPosition');
+    placeLabel.innerHTML = "Latitude: " + position.coords.latitude +
+        "<br>Longitude: " + position.coords.longitude;
+    positionLatitude = position.coords.latitude;
+    positionLongitude = position.coords.longitude;
+
+}

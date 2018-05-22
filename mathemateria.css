@@ -173,3 +173,28 @@ img {
     position: absolute;
     left: 10%;
 }
+
+#place {
+    position: absolute;
+    left: 1%;
+    font-family: fontAwsome;
+    background-color: darkorange;
+    background: linear-gradient(to bottom right, indianred, darkorange);
+    font-size: 25px;
+    border: 2px solid black;
+    color: black;
+    top: 25%;
+   
+}
+
+#geoLocation {
+    position: absolute;
+    left: 1%;
+    font-family: fontAwsome;
+    background-color: darkorange;
+    background: linear-gradient(to bottom right, indianred, darkorange);
+    font-size: 25px;
+    border: 2px solid black;
+    color: black;
+    top: 20%;
+}
