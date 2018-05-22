@@ -17,6 +17,7 @@ var equals = document.getElementById('equals');
 var svgContainer = document.getElementById('svgContainer');
 var exerciseSet;
 var currentExerciseIndex;
+var firebaseAuthToken;
 var startTime = 0;
 var sec = document.getElementById('secdiv');
 var timerInterval;
@@ -171,6 +172,14 @@ function callServer(functionName, paramsObj) {
     };
 }
 
+function verifyToken() {
+    callServer('testAuth', { token: firebaseAuthToken });
+}
+
+function recieveVerification(verification) {
+    console.log(verification);
+}
+
 function recieveEvaluation(evaluation) {
     var millis = currentTimeInMilliseconds() - startTime;
     var minutes = Math.floor(millis / 60000);
@@ -182,12 +191,48 @@ function recieveEvaluation(evaluation) {
         console.log(evaluation.correctAnswers[i]);
         var thisTaskNumber = i + 1;
         if (yourAnswers[i] == evaluation.correctAnswers[i]) {
-            resultDiv.innerHTML += thisTaskNumber + ' . ' + evaluation.exercises[i] +"<font color='green'>Correct!</font>" + '<br/>';
+            resultDiv.innerHTML += thisTaskNumber + ' . ' + "<font color='green'>Correct!</font>" + ' ' + evaluation.exercises[i] + '  = ' + evaluation.correctAnswers[i] + '<br/>';
 
-        } else {           
-            resultDiv.innerHTML += thisTaskNumber + ' . ' + evaluation.exercises[i] + '<strike>' + "<font color='#cc0000'>Wrong!</font>" + '</strike>' +
-                ' The correct answer = ' + evaluation.correctAnswers[i] + '<br/>';
+        } else {
+            resultDiv.innerHTML += thisTaskNumber + ' . ' + '<strike>' + "<font color='#cc0000'>Wrong!</font>" + '</strike>' + ' ' + evaluation.exercises[i] +
+                '  = ' + evaluation.correctAnswers[i] + '<br/>';
         }
         console.log(exerciseArray[i]);
     }
 };
+
+firebase.auth().onAuthStateChanged(function (user) {
+    if (user) {
+        user.getIdToken(false).then((token) => {
+            firebaseAuthToken = token;
+            console.log(token);
+        });
+        document.getElementById('firebaseui-auth-container').style.display = 'none';
+        document.getElementById('signOut').style.display = 'block';
+    } else {
+        console.log("signed out");
+    }
+});
+
+// Initialize the FirebaseUI Widget using Firebase.
+var ui = new firebaseui.auth.AuthUI(firebase.auth());
+var uiConfig = {
+    callbacks: {
+        uiShown: function () {
+            // The widget is rendered.
+            // Hide the loader.
+            document.getElementById('loader').style.display = 'none';
+        }
+    },
+    // Will use popup for IDP Providers sign-in flow instead of the default, redirect.
+    //signInFlow: 'popup',
+    signInSuccessUrl: '#',
+    signInOptions: [
+        // Leave the lines as is for the providers you want to offer your users.
+        firebase.auth.GoogleAuthProvider.PROVIDER_ID,
+        firebase.auth.EmailAuthProvider.PROVIDER_ID
+    ],
+    // Terms of service url.
+    tosUrl: '<your-tos-url>'
+};
+ui.start('#firebaseui-auth-container', uiConfig);

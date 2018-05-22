@@ -54,7 +54,7 @@
 }
 
 #svgContainer {
-    display: block;
+    display: none;
     font-family: fontAwsome;
     background-color: darkorange;
     border: 2px solid black;
@@ -167,4 +167,9 @@ img {
     left: 5%;
     padding-left: 10px;
     display: none;
+}
+
+#firebaseui-auth-container {
+    position: absolute;
+    left: 10%;
 }

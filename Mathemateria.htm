@@ -42,6 +42,11 @@
     <br />
     <div id="secdiv"></div>
     <div id="taskNumber"></div>
+    <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/2.5.1/firebaseui.css" />
+    <div id="firebaseui-auth-container"></div>
+    <div id="loader">Loading...</div>
+    <a href="javascript:firebase.auth().signOut()" id="signOut" style="display: none">Sign out</a>
+    <a href="javascript:verifyToken()">Verify token</a>
 
     <br />
     <ul>
@@ -54,6 +59,22 @@
 
     </ul>
 
+    <script src="https://www.gstatic.com/firebasejs/5.0.3/firebase.js"></script>
+    <script>
+        var firebaseAuthToken;
+        // Initialize Firebase
+        var config = {
+            apiKey: "AIzaSyB7Wq_XclogM44Xcvs_OW7pLvhwnaZO5NI",
+            authDomain: "fir-test-bb3be.firebaseapp.com",
+            databaseURL: "https://fir-test-bb3be.firebaseio.com",
+            projectId: "fir-test-bb3be",
+            storageBucket: "fir-test-bb3be.appspot.com",
+            messagingSenderId: "842259759216"
+        };
+        firebase.initializeApp(config);
+    </script>
+    <script src="https://cdn.firebase.com/libs/firebaseui/2.5.1/firebaseui.js"></script>
     <script type="text/javascript" src="mathemateria.js"></script>
+
 </body>
 </html>
