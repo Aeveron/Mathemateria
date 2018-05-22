@@ -249,7 +249,7 @@ function getGeoLocation() {
         placeLabel.innerHTML = 'Getting geo location...';
     } else {
         placeLabel.innerHTML = "Geolocation is not supported by this browser.";
-    }
+    }   
 }
 
 function showPosition(position) {
@@ -258,5 +258,13 @@ function showPosition(position) {
         "<br>Longitude: " + position.coords.longitude;
     positionLatitude = position.coords.latitude;
     positionLongitude = position.coords.longitude;
+    console.log(placeLabel.innerHTML);   
+}
+function recievePlace(){
 
 }
+
+recievePlace({ "id": "621oBaP0HCZDPsZCfpmZ" }); 
+console.log(recievePlace);
+
+
