@@ -26,6 +26,7 @@ var taskNumber = document.getElementById('taskNumber');
 var allAnswers = ''; // '16,81,35,27,4,9,12,8,49,48'
 var yourAnswers = [];
 var exerciseArray = [];
+//getGeoLocation();
 
 function displayAnswers(clicked) {
     var number = clicked.innerHTML;
@@ -205,7 +206,7 @@ firebase.auth().onAuthStateChanged(function (user) {
     if (user) {
         user.getIdToken(false).then((token) => {
             firebaseAuthToken = token;
-            console.log(token);
+            //console.log(token);
         });
         document.getElementById('firebaseui-auth-container').style.display = 'none';
         document.getElementById('signOut').style.display = 'block';
@@ -249,7 +250,7 @@ function getGeoLocation() {
         placeLabel.innerHTML = 'Getting geo location...';
     } else {
         placeLabel.innerHTML = "Geolocation is not supported by this browser.";
-    }   
+    }
 }
 
 function showPosition(position) {
@@ -258,13 +259,18 @@ function showPosition(position) {
         "<br>Longitude: " + position.coords.longitude;
     positionLatitude = position.coords.latitude;
     positionLongitude = position.coords.longitude;
-    console.log(placeLabel.innerHTML);   
-}
-function recievePlace(){
 
 }
 
-recievePlace({ "id": "621oBaP0HCZDPsZCfpmZ" }); 
-console.log(recievePlace);
+////var getGeo = getGeoLocation();
+//var showPos = showPosition();
+
+//function recievePlace() {   
+//    callServer('showPos', { token: firebaseAuthToken });
+//    console.log(recievePlace);
+//}
+
+
+
 
 
